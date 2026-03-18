@@ -2,7 +2,7 @@
 
 WebDocx is a DOCX-first collaborative document workspace built on top of ONLYOFFICE Docs. It provides a React application shell, a FastAPI backend, version history, sharing, comparison-draft workflows, and ONLYOFFICE callback orchestration for web-based editing and review.
 
-This repository contains the application code. It does **not** vendor the ONLYOFFICE Document Server source or binaries. Document Server should be installed and run separately, then connected through environment variables.
+This repository contains the application code **and** the downloaded `DocumentServer/` source checkout that was used as the local ONLYOFFICE reference tree during development. The checked-in `DocumentServer/` folder is still source code, not a running installation. ONLYOFFICE Document Server must still be installed and run separately, then connected through environment variables.
 
 ## What It Does
 
@@ -26,6 +26,7 @@ This repository contains the application code. It does **not** vendor the ONLYOF
 
 ```text
 .
+├── DocumentServer/ Source checkout of ONLYOFFICE Docs
 ├── backend/        FastAPI API, ORM models, services, tests, migrations
 ├── frontend/       React application shell and ONLYOFFICE embedding layer
 ├── infra/          Reverse-proxy starter config
@@ -340,12 +341,14 @@ npm run build
 
 ## Publishing Notes
 
-This repo intentionally excludes the downloaded `DocumentServer/` source tree because:
+This repo now includes the downloaded `DocumentServer/` source checkout because it was requested as part of the published repository. It is included as reference source, not as a replacement for a running ONLYOFFICE installation.
 
-- it is large and unnecessary for application development
-- it is a separate upstream project
-- the app only needs a reachable running ONLYOFFICE instance
+Important:
+
+- the checked-in `DocumentServer/` folder is not the same as an installed server
+- the app still needs a reachable running ONLYOFFICE instance
+- the upstream project remains separate and should still be tracked for licensing and updates
 
 ## License and Upstream
 
-This app integrates with ONLYOFFICE Docs Community Edition. Review ONLYOFFICE licensing before using this application for a commercial SaaS product.
+This app integrates with ONLYOFFICE Docs Community Edition. The repository now also includes a local `DocumentServer/` source checkout for reference. Review ONLYOFFICE licensing before using this application for a commercial SaaS product.

@@ -1,7 +1,7 @@
-DocumentServer/
 .env
 *.log
 *.tmp
+DocumentServer/_embedded_git_metadata/
 frontend/node_modules/
 frontend/dist/
 frontend/.env
