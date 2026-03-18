@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: word-workspace-postgres
+    environment:
+      POSTGRES_DB: word_workspace
+      POSTGRES_USER: word
+      POSTGRES_PASSWORD: word
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

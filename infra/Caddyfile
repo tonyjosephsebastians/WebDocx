@@ -1,0 +1,15 @@
+:80 {
+  @api path /api/* /health
+  handle @api {
+    reverse_proxy 127.0.0.1:8000
+  }
+
+  @docs path /ds/* /web-apps/* /coauthoring/*
+  handle @docs {
+    reverse_proxy 127.0.0.1:8080
+  }
+
+  handle {
+    reverse_proxy 127.0.0.1:5173
+  }
+}
